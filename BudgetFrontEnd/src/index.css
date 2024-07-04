@@ -4,22 +4,17 @@
 }
  /* html parent to => body parent to => #root */
  
- body, html {
-    height: 100vh;
-    width: 100vw;
-}
-#root {
-    display: grid;
+  body, html {
     height: 100%;
     width: 100%;
-    grid-template-rows: 70px 1fr ;
 }
 
-nav {
-    display: flex;
-    height: 70px;
-    background-color: antiquewhite;
-    padding: 10px;
+
+#root {
+    height: 100%;
+    width: 100%;
 }
+
+
 
 

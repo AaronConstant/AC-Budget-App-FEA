@@ -1,0 +1,24 @@
+.table-container{
+    border: 2px solid black;
+    height: auto;
+    width: auto;
+    justify-content: center;
+    text-align: center;
+    margin: 20px;;
+
+        table {
+            padding: 4px;
+            border: 4px solid red;
+            margin: 10px auto;
+
+            thead {
+                // padding: 10px;
+                font-family: 'Courier New', Courier, monospace;
+                text-decoration: underline;
+            }
+            th {
+                padding: 0 24px;
+            }
+
+        }
+    }

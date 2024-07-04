@@ -1,10 +1,11 @@
 import React,{ useState }from 'react'
 import { useNavigate } from 'react-router-dom'
 import { nanoid } from 'nanoid'
-export default function New() { 
+export default function New({setTransactions}) { 
     const API = import.meta.env.VITE_BASE_URL
+    const navigate = useNavigate()
     const [newtransaction, setNewTransaction] = useState( {
-        name: "",
+        transaction: "",
         id: nanoid(6) ,
         amount: "",
         date: "",
@@ -13,13 +14,13 @@ export default function New() {
     })
 
     const monitorChange = (e) => {
-        setNewTransaction((prevState) =>{
-            setNewTransaction( {...prevState, [e.target.name] : e.target.value})
-        })
-
+        setNewTransaction(prevState => ({
+            ...prevState,
+            [e.target.name]: e.target.value
+        }))
     }
 
-    const handleSubmit =()=> {
+    const handleSubmit =(e)=> {
         e.preventDefault()
 
         fetch(API, {
@@ -32,43 +33,72 @@ export default function New() {
         .then(res => res.json())
         .then(res => {
             console.log(res)
+            navigate("/transactions")
+            setTransactions((prevState)=>{
+                return [...prevState, res]
+             })
         })
-
+        .catch(err => console.error(err))
     }
-
   return (
-
-    <form>
+    <form onSubmit={ handleSubmit }>
         <fieldset>
             <legend>New Transactions</legend>
-            <label htmlFor="date">
-                Date:
-            <input type="text" placeholder='MM/DD/YYYY' name='date' onChange={monitorChange}/>
-            </label>
+            <label htmlFor='transaction'>Transaction for:</label> 
+            <input 
+                type="text" 
+                placeholder='Transaction' 
+                name='transaction'
+                id='transaction'
+                value= { newtransaction.transaction }
+                onChange= { monitorChange }
+            />
+                <br />
+                <label htmlFor='date'>Date:</label> 
+                        
+            <input 
+                type="date" 
+                placeholder='YYYY/MM/DD' 
+                name='date'
+                id='date'
+                value={newtransaction.date}
+                onChange={monitorChange}
+            />
             <br />
-            <label htmlFor="name">
-                Name: 
-            <input type="text" placeholder='Name' name='name'onChange={monitorChange}/>
-            </label>
+            <label htmlFor='amount'>Amount:</label> 
+        
+            <input 
+                type="text" 
+                placeholder='Amount' 
+                name='amount'
+                id='amount'
+                value={newtransaction.amount}
+                onChange={monitorChange}
+            />
             <br />
-            <label htmlFor="amount">
-                Amount:
-            <input type="text" placeholder='Amount' name='amount'onChange={monitorChange}/>
-            </label>
+                <label htmlFor='from'>Business:</label> 
+            <input 
+                type="text" 
+                placeholder='From'
+                name='from' 
+                id='from'
+                value={newtransaction.from}
+                onChange={monitorChange}
+            />
             <br />
-            <label htmlFor="from">
-                From: 
-            <input type="text" placeholder='From' name='from'onChange={monitorChange}/>
-            </label>
-            <br />
-            <label htmlFor="category">
-                Category: 
-            <input type="text" placeholder='Category' name='category'onChange={monitorChange}/>    
-            </label>
-
-            <button onSubmit={ handleSubmit }>Submit</button>
+                <label htmlFor='category'>Category:</label> 
+            <select id='category'name='category' value= { newtransaction.category } onChange= { monitorChange }>
+                <option value='Income'>Income</option>
+                <option value='Savings'>Savings</option>
+                <option value='Pet'>Pet</option>
+                <option value='Groceries'>Groceries</option>
+                <option value='Credit Card'>Credit Card Payment</option>
+                <option value='Entertainment'>Entertainment</option>
+                <option value='Other'>Other</option>
+            </select>
+            <br /> 
+            <input type='submit' value='Submit New Entry'/>
         </fieldset>
     </form>
 
-      )
-    }
+    )}

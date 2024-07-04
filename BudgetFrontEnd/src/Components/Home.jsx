@@ -2,20 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import '../Styling/Home.scss'
 
-export default function Home() {
-    const API = import.meta.env.VITE_BASE_URL
-    const [transactions, setTransactions] = useState([])
-    useEffect(() => {
-        fetch(API)
-        .then(res => res.json())
-        .then(res => {
-            setTransactions(res)
-        })
-        .catch(err => console.error(err))
+export default function Home({transactions}) {
 
-    },[])
+    if (!transactions || !Array.isArray(transactions)) {
+        return <div>Loading Your Logs</div>;
+      }
 
-    
+
   return (
     <div className='table-container'>
         <table className='table-container__transaction-table'>
@@ -35,7 +28,7 @@ export default function Home() {
                         <tr key = { i } className='table-row'>
                             <td>{items.id}</td>
                             <td>{items.date}</td>
-                            <td><Link to={`/transactions/${ i }`} className='transactions-link'>{items.name}</Link></td>
+                            <td><Link to={`/transactions/${ i }`} className='transactions-link'>{ items.transaction }</Link></td>
                             <td>{items.from}</td>
                             <td>{items.amount}</td>
                             <td>{items.category}</td>

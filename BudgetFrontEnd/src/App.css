@@ -1,13 +1,8 @@
-.table-container{
-  position: relative;
+
+nav {
   display: flex;
-  gap: 10px;
-  border: 2px solid black;
-  height: 100px;
-  width: auto;
-  margin: 0 auto;
-  justify-content: center;
-  place-items: center;
+  height: 70px;
+  background-color: antiquewhite;
+  padding: 10px;
   text-align: center;
-  top: 50%
 }

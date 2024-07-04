@@ -1,5 +1,5 @@
 import React,{ useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 export default function Show() {
     const API = import.meta.env.VITE_BASE_URL
     const [transactionInfo, setTransactionInfo] = useState([])
@@ -28,13 +28,15 @@ export default function Show() {
         <div className='info-container'>
           {transactionInfo && (
             <div className='info-container__transaction-info'>
-              <h1>{`${transactionInfo.name}: ${transactionInfo.amount}`}</h1>
+              <h1>{`${transactionInfo.transaction}: ${transactionInfo.amount}`}</h1>
               <h3>
                 {transactionInfo.amount > 0
-                  ? `Received from: ${transactionInfo.name}`
-                  : `Expense for: ${transactionInfo.name}`}
+                  ? `Received from: ${ transactionInfo.from }`
+                  : `Expense for: ${ transactionInfo.category }`}
               </h3>
+              <Link to= { `/transactions/${ index }/edit` } >
               <button>Edit</button>
+              </Link>
               <button onClick={handleDelete}>Delete</button>
             </div>
           )}

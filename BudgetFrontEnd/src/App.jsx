@@ -6,7 +6,9 @@ import New from './Components/New'
 import Show from './Components/Show'
 import { useEffect, useState } from 'react'
 import Edit from './Components/Edit'
+import SignIn from './Components/SignIn'
 function App() {
+  
   const API = import.meta.env.VITE_BASE_URL
   const [transactions, setTransactions] = useState()
   useEffect(() => {
@@ -24,6 +26,7 @@ function App() {
     <>
     <NavBar/>
     <Routes>
+      <Route path='/' element={<SignIn transactions={transactions}/>}></Route>
       <Route path='/transactions' element={<Home transactions= {transactions} />}/>
       <Route path='transactions/new' element={<New setTransactions= {setTransactions}/>}/>
       <Route path='/transactions/:index' element={<Show transactions= { transactions }/>} />

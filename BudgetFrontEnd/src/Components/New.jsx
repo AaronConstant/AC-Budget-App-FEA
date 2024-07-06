@@ -1,6 +1,8 @@
 import React,{ useState }from 'react'
 import { useNavigate } from 'react-router-dom'
 import { nanoid } from 'nanoid'
+import '../Styling/New.scss'
+
 export default function New({setTransactions}) { 
     const API = import.meta.env.VITE_BASE_URL
     const navigate = useNavigate()
@@ -41,6 +43,7 @@ export default function New({setTransactions}) {
         .catch(err => console.error(err))
     }
   return (
+    <div className='container'>
     <form onSubmit={ handleSubmit }>
         <fieldset>
             <legend>New Transactions</legend>
@@ -100,5 +103,7 @@ export default function New({setTransactions}) {
             <input type='submit' value='Submit New Entry'/>
         </fieldset>
     </form>
+
+    </div>
 
     )}

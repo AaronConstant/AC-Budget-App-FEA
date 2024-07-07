@@ -1,20 +1,48 @@
 .container {
     display: grid;
-    border: 2px solid red;
     height: 100%;
 }
 
 
 
 form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // flex-direction: row;
+    
+    height: 60%;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 10px;
 
-    fieldset {
+    fieldset { display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;        
         border: 4px solid black;
-        background-color: rgb(234, 238, 203);
+        background: rgb(9,121,21);
+        background: linear-gradient(0deg, rgba(9,121,21,0.8393732492997199) 24%, rgba(239,255,0,0.9654236694677871) 100%);        
         border-radius: 14px;
         box-shadow: 5px 5px 14px 0px;
+        height: 100%;
+        gap: 4px;
+
+        legend {
+            color: rgb(228, 228, 77);
+            font-size: 30px;
+            background: black;
+            border-radius: 14px;
+            padding: 10px;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input {
+            margin-top: 14px;
+            width: 70%;
+            margin: 0 auto;
+        }
     }
 }

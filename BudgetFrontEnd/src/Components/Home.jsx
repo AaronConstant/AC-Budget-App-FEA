@@ -11,6 +11,7 @@ export default function Home({transactions}) {
 
 
   return (
+    <main>
     <div className='table-container'>
         <h1>Hello (Insert Username)</h1>
                 <h2>Total Budget: {transactions.reduce((total,item) => { return parseInt(item.amount) + total},0)}
@@ -57,5 +58,6 @@ export default function Home({transactions}) {
             </tbody>
         </table>
     </div>
+    </main>
   )
 }

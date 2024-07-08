@@ -6,15 +6,19 @@ export default function Home({transactions}) {
     const activeLink = true;
 
     if (!transactions || !Array.isArray(transactions)) {
-        return <div>Loading Your Budget List...</div>;
-      }
+        return <div className='loading-container'>
+                    <div className='loading-container__message'>
+                        Loading Your Budget List...
+                    </div>
+                </div>;
+    }
 
 
   return (
     <main>
     <div className='table-container'>
         <h1>Hello (Insert Username)</h1>
-                <h2>Total Budget: {transactions.reduce((total,item) => { return parseInt(item.amount) + total},0)}
+                <h2>Total Budget: { transactions.reduce((total,item) => { return parseInt(item.amount) + total},0) }
                 </h2>
         <table className='table-container__transaction-table'>
             <thead>
@@ -28,17 +32,17 @@ export default function Home({transactions}) {
                 </tr>
             </thead>
             <tbody>
-                { transactions.map((items,i) => {
+                { transactions.map(( items,i ) => {
                     return (
                         <>
                         <tr key = { i } className='table-row'>
-                            <td>{items.id}</td>
-                            <td>{items.date}</td>
+                            <td>{ items.id }</td>
+                            <td>{ items.date }</td>
                             <td><Link to={`/transactions/${ i }`} style={{color: 'blue'}}>{ items.transaction }</Link></td>
-                            <td>{items.from}</td>
+                            <td>{ items.from }</td>
                             <td style={{ color: items.amount > 0 ? 'green' : 'red' }}> {items.amount}</td>                            
-                            <td>{items.category}</td>
-                            <td>
+                            <td>{ items.category }</td>
+                            <td className='additional-actions'>
                                 <details style={{position: 'relative'}}>
                                     <summary>...</summary>
                                         <ul style={{position: 'absolute'}} className='drop-down'>

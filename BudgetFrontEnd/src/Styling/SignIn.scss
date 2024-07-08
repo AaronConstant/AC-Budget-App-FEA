@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    height: 90%;
+}
+
+.signIn-Form{
+    border: 2px solid gray;
+    border-radius: 20px;
+    box-shadow:  4px 4px 12px rgba(114, 224, 141, 1);
+    font-family: Nunito;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 20%;
+    background: rgb(64,187,77);
+    background: radial-gradient(circle,rgba(218, 228, 72, 0.524) 37%, rgba(64, 187, 76, 0.721) 100%);
+    
+    input {
+        margin-top: 10px;
+    }
+
+
+    .remember-forgot {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 15px 0 15px;
+
+        
+    }
+    .register-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        margin: 4px 0 15px;
+    }
+
+    button {
+        width: 50% ;
+        border: 2px solid gray;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+}

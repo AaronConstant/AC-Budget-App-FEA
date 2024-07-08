@@ -1,12 +1,15 @@
 import './App.css'
-import NavBar from './Components/NavBar'
 import { Routes, Route } from 'react-router-dom'
-import Home from './Components/Home'
-import New from './Components/New'
-import Show from './Components/Show'
 import { useEffect, useState } from 'react'
-import Edit from './Components/Edit'
+
+//routes
 import SignIn from './Components/SignIn'
+import NavBar from './Components/NavBar'
+import About from './Components/About'
+import Home from './Components/Home'
+import Show from './Components/Show'
+import Edit from './Components/Edit'
+import New from './Components/New'
 function App() {
   
   const API = import.meta.env.VITE_BASE_URL
@@ -26,7 +29,8 @@ function App() {
     <>
     <NavBar/>
     <Routes>
-      <Route path='/' element={<SignIn transactions={transactions}/>}></Route>
+      <Route path='/SignIn' element={<SignIn/>}/>
+      <Route path='/about' element={<About/>}/>
       <Route path='/transactions' element={<Home transactions= {transactions} />}/>
       <Route path='transactions/new' element={<New setTransactions= {setTransactions}/>}/>
       <Route path='/transactions/:index' element={<Show transactions= { transactions }/>} />

@@ -6,22 +6,20 @@
 
 
 form {
-    // display: flex;
-    // flex-direction: row;
-    
     height: 60%;
     width: 30%;
     margin: 0 auto;
     margin-top: 100px;
     padding: 10px;
 
-    fieldset { display: flex;
+    fieldset { 
+        display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;        
         border: 4px solid black;
         background: rgb(9,121,21);
-        background: linear-gradient(0deg, rgba(9,121,21,0.8393732492997199) 24%, rgba(239,255,0,0.9654236694677871) 100%);        
+        background: linear-gradient(0deg, rgb(3, 102, 100,0.8393732492997199) 10%, rgba(204, 213, 86, 0.791) 90%);        
         border-radius: 14px;
         box-shadow: 5px 5px 14px 0px;
         height: 100%;
@@ -37,12 +35,43 @@ form {
 
         label {
             margin-bottom: 8px;
+            font-size: 20px;
         }
 
         input {
             margin-top: 14px;
-            width: 70%;
+            width: 60%;
+            height: 34px;
             margin: 0 auto;
+            border: none;
+            border-radius: 14px;
+            text-align: center;
+
+        }
+        #date {
+            cursor: pointer;
+            text-align: center;
+        }
+        #category {
+            width: 60%;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        #submit {
+            background-color: rgb(235, 247, 126);
+            width: 34%; 
+            font-size: 14px;
+            border-radius: 25px;
+            border: none;
+            transition: 500ms ease-in-out;
+            font-style:italic;
+            margin-bottom: 14px;
+
+            &:hover{
+                background-color: black;
+                color: white;
+                cursor: pointer;
+            }
         }
     }
 }

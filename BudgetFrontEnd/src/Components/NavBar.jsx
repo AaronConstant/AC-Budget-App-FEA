@@ -9,11 +9,11 @@ export default function NavBar() {
         <li>
             <Link to='/about'>About your Budget</Link>
         </li>
-    <Link to='/transactions'><h1 className='title-name'>Budget App List</h1></Link>
+    <Link to='/transactions'><h1 className='title-name'>Budget Sapien</h1></Link>
         <li>
             <Link to='/transactions/new'>New transactions</Link>
         </li>
-    <Link to='/'><li>Log Out</li></Link>
+    <Link to='/SignIn' className='Sign-in'><li>Log Out</li></Link>
     </ul>
 </nav>
 )

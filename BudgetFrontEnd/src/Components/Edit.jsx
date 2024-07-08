@@ -46,7 +46,7 @@ export default function Edit() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={ handleSubmit }>
         <fieldset>
           <legend>Edit Transactions</legend>
           <label htmlFor="transaction">Transaction for:</label>
@@ -55,8 +55,9 @@ export default function Edit() {
             placeholder="Transaction"
             name="transaction"
             id="transaction"
-            value={editTransaction.transaction}
-            onChange={monitorChange}
+            value={ editTransaction.transaction }
+            onChange={ monitorChange }
+            required
           />
           <br />
           <label htmlFor="date">Date:</label>
@@ -65,8 +66,9 @@ export default function Edit() {
             placeholder="YYYY/MM/DD"
             name="date"
             id="date"
-            value={editTransaction.date}
-            onChange={monitorChange}
+            value={ editTransaction.date }
+            onChange={ monitorChange }
+            required
           />
           <br />
           <label htmlFor="amount">Amount:</label>
@@ -75,8 +77,9 @@ export default function Edit() {
             placeholder="Amount"
             name="amount"
             id="amount"
-            value={editTransaction.amount}
-            onChange={monitorChange}
+            value={ editTransaction.amount }
+            onChange={ monitorChange }
+            required
           />
           <br />
           <label htmlFor="from">Business:</label>
@@ -85,16 +88,18 @@ export default function Edit() {
             placeholder="From"
             name="from"
             id="from"
-            value={editTransaction.from}
-            onChange={monitorChange}
+            value={ editTransaction.from }
+            onChange={ monitorChange }
+            required
           />
           <br />
           <label htmlFor="category">Category:</label>
           <select
             id="category"
             name="category"
-            value={editTransaction.category}
-            onChange={monitorChange}
+            value={ editTransaction.category }
+            onChange={ monitorChange }
+            required
           >
             <option value="Income">Income</option>
             <option value="Savings">Savings</option>

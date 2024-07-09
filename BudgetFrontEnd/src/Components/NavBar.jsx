@@ -1,7 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { act } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import '../Styling/NavBar.scss'
-export default function NavBar() {
+export default function NavBar({activeAccount}) {
+    const { sigin } = useParams()
+    // console.log(activeAccount)
 
   return (   
 <nav>
@@ -9,11 +11,14 @@ export default function NavBar() {
         <li>
             <Link to='/about'>About your Budget</Link>
         </li>
-    <Link to='/transactions'><h1 className='title-name'>Budget Sapien</h1></Link>
+            <Link to='/transactions'><h1 className='title-name'>Budget Sapien</h1></Link>
         <li>
             <Link to='/transactions/new'>New transactions</Link>
         </li>
-    <Link to='/SignIn' className='Sign-in'><li>Log Out</li></Link>
+        <li>  
+            <Link to='/:signIn' className='Sign-in'>Log Out</Link>
+        </li>
+        
     </ul>
 </nav>
 )

@@ -11,7 +11,7 @@ import Show from './Components/Show'
 import Edit from './Components/Edit'
 import New from './Components/New'
 function App() {
-  
+  const activeAccount = false;
   const API = import.meta.env.VITE_BASE_URL
   const [transactions, setTransactions] = useState()
   useEffect(() => {
@@ -24,12 +24,11 @@ function App() {
 
   },[])
 
-
   return (
     <>
-    <NavBar/>
+    <NavBar activeAccount = { activeAccount }/>
     <Routes>
-      <Route path='/SignIn' element={<SignIn/>}/>
+      <Route path='/SignIn' element={<SignIn activeAccount={activeAccount}/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/transactions' element={<Home transactions= {transactions} />}/>
       <Route path='transactions/new' element={<New setTransactions= {setTransactions}/>}/>

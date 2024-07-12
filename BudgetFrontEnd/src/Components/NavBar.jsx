@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom'
 import '../Styling/NavBar.scss'
 export default function NavBar({activeAccount}) {
     const { sigin } = useParams()
-    // console.log(activeAccount)
 
   return (   
 <nav>
@@ -16,7 +15,7 @@ export default function NavBar({activeAccount}) {
             <Link to='/transactions/new'>New transactions</Link>
         </li>
         <li>  
-            <Link to='/:signIn' className='Sign-in'>Log Out</Link>
+            <Link to='/signin' className='Sign-in'>Log Out</Link>
         </li>
         
     </ul>

@@ -28,8 +28,9 @@ function App() {
     <>
     <NavBar activeAccount = { activeAccount }/>
     <Routes>
-      <Route path='/SignIn' element={<SignIn activeAccount={activeAccount}/>}/>
-      <Route path='/about' element={<About/>}/>
+    <Route path='/' element={<SignIn activeAccount={activeAccount}/>}/>
+    <Route path='/signin' element={<SignIn activeAccount={activeAccount}/>}/>
+    <Route path='/about' element={<About/>}/>
       <Route path='/transactions' element={<Home transactions= {transactions} />}/>
       <Route path='transactions/new' element={<New setTransactions= {setTransactions}/>}/>
       <Route path='/transactions/:index' element={<Show transactions= { transactions }/>} />
